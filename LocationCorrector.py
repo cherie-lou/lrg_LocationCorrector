@@ -533,17 +533,17 @@ if input_file is not None:
         df_as_lists[column_name] = df[column_name].tolist()
     result = standardize_df(df_as_lists)
     df_std = pd.DataFrame(result)
-        
-    st.header('Download output')
-    custom_filename = st.text_input("Enter the custom filename (e.g., MyCustomFile.xlsx):")
-    if st.button("Download"): 
-        default_filename = "Cleaned Location.xlsx"
+    st.dataframe(df_std)
+    # st.header('Download output')
+    # custom_filename = st.text_input("Enter the custom filename (e.g., MyCustomFile.xlsx):")
+    # if st.button("Download"): 
+    #     default_filename = "Cleaned Location.xlsx"
 
-        # Determine the output filename
-        if custom_filename:
-            filename = custom_filename
-        else:
-            filename = default_filename
-        output_path = filename
-        with pd.ExcelWriter(output_path, engine='xlsxwriter') as writer:
-            df_std.to_excel(writer, index=False)
+    #     # Determine the output filename
+    #     if custom_filename:
+    #         filename = custom_filename
+    #     else:
+    #         filename = default_filename
+    #     output_path = filename
+    #     with pd.ExcelWriter(output_path, engine='xlsxwriter') as writer:
+    #         df_std.to_excel(writer, index=False)
