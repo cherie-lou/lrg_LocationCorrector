@@ -545,5 +545,5 @@ if input_file is not None:
         else:
             filename = default_filename
         output_path = filename
-
-        df_std.to_excel(output_path, index=False)
+        with pd.ExcelWriter(output_path, engine='xlsxwriter') as writer:
+            df_std.to_excel(writer, index=False)
