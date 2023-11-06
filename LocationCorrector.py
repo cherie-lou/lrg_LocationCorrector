@@ -505,7 +505,6 @@ def standardize_df(df):
 st.title("Location Corrector")
 st.header('File Input')
 input_file = st.file_uploader("Upload an Excel File",type=["xls","xlsx"])
-
 if input_file is not None:
     df = pd.read_excel(input_file, sheet_name='LTL Sample Data')
     df = df[df['ID'].notna()]
@@ -534,9 +533,7 @@ if input_file is not None:
         df_as_lists[column_name] = df[column_name].tolist()
     result = standardize_df(df_as_lists)
     df_std = pd.DataFrame(result)
-    output_file_path = '/Users/CherieLou/Downloads/Minmor_updated_analysis.xlsx'
-    df_std.to_excel(output_file_path, index=False)
-
+        
     st.header('Download output')
     custom_filename = st.text_input("Enter the custom filename (e.g., MyCustomFile.xlsx):")
     if st.button("Download"): 
