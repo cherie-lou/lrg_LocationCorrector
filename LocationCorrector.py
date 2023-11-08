@@ -506,7 +506,7 @@ st.title("Location Corrector")
 st.header('File Input')
 input_file = st.file_uploader("Upload an Excel File",type=["xls","xlsx"])
 if input_file is not None:
-    selectmode = st.selectbox("Select the sheet name,('LTL Sample Data','TL Sample Data'))
+    selectmode = st.selectbox("Select the sheet name",('LTL Sample Data','TL Sample Data'))
     df = pd.read_excel(input_file, sheet_name=selectmode)
     df = df[df['ID'].notna()]
     # Get the column names
